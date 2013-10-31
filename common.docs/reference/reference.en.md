@@ -132,7 +132,8 @@ block menu {
     </tr>
 </table>
 
-The generation procedure of an HTML-item in BEMHTML is standardized and performed by the templating engine. Such approach allows us to use declarative templates. The same approach is used for the data transformation in XSLT and AWK.
+The generation procedure of an HTML-item in BEMHTML is standardized and performed by the templating engine.
+Such approach allows us to use declarative templates. The same approach is used for the data transformation in XSLT and AWK.
 
 <a id="descriptionlanguage"></a>
 
@@ -140,7 +141,8 @@ The generation procedure of an HTML-item in BEMHTML is standardized and performe
 
 BEMHTML is a specialized language (DSL) which **extends** JavaScript syntax.
 
-More precisely, BEMHTML is a superset of [XJST](https://github.com/veged/xjst/) pattern language, which in turn is a superset of JavaScript.
+More precisely, BEMHTML is a superset of [XJST](https://github.com/veged/xjst/) pattern language,
+which in turn is a superset of JavaScript.
 
 BEMHTML syntax provides short notation to connect BEM-entities and generation of HTML elements and attributes.
 Besides that, **any** JavaScript constructions can be used within templates.
@@ -151,17 +153,20 @@ Besides that, **any** JavaScript constructions can be used within templates.
 
 BEMHTML is compiled into optimized JavaScript before execution, which receives BEMJSON data and returns HTML.
 
-Such template can be executed at the server side as well at the client side.
+Such a template can be run on the server side as well as on the client side.
 
 <a id="restrictions"></a>
 
 #### Restrictions
 
-BEMHTML developers tried to create a tool with maximal flexibility, so BEMHTML is not provided with any technological limitations on the operations performed in the templates. In fact, everything that is possible in JavaScrip, is possible in BEMHTML-code.
+BEMHTML developers tried to create a tool with maximum flexibility,
+so BEMHTML does not have any technological limitations on the operations performed inside templates.
+In fact, everything that is possible in JavaScript, is possible in BEMHTML code as well.
 
-All restrictions, which are ensuring the correctness and effectiveness of the performance, are implemented at the level of agreements on templates writing.
-Such agreements are provided in this document as a guideline.
-Therefore it's possible not to follow the conventions, however in this case it is necessary to weigh the advantages and disadvantages of the new solutions.
+Any restrictions that keep the templating language efficient are mostly code style agreements.
+Such agreements are provided in this document as guidelines.
+Therefore it's possible not to follow the conventions,
+however in this case it is necessary to weigh the advantages and disadvantages of alternative approaches.
 
 <a id="basic"></a>
 
@@ -171,17 +176,21 @@ Therefore it's possible not to follow the conventions, however in this case it i
 
 #### The Input Data: BEMJSON
 
-Since BEMHTML is based on JavaScript, JSON with a set of supplemental agreements on BEM-entities (BEMJSON) is selected for the format of BEM-tree.
+Since BEMHTML is based on JavaScript, JSON with a set of supplemental agreements on BEM-entities (BEMJSON)
+has been chosen as the BEM tree format.
 
-In order to maintain flexibility and maintainability, any complex transformations of input data shouldn't be performed at the level of a templating engine.
-The templates should have a form of simplest possible statements that map each type of BEM-entity to HTML-representation.
+In order to keep it both flexible and maintenable, any complex transformations of input data
+shouldn't be performed at the templating engine level.
+A template should be a set of simple statements that map each type of BEM entities to an HTML representation.
 
-For these reasons, structure of the BEM-tree should be view-oriented, so there won't be need to change the set of blocks, elements and their order during the process of HTML-tree generation.
-BEM-tree should be transformed into a view-oriented format at the back-end level (before passing it to the templating engine).
-A good example of view-oriented data format you can find in the section [Transformation of the input data into a view-oriented format](#bringing_input).
+For these reasons, the structure of the BEM tree should be view-oriented, so there won't be any need to change
+the set of blocks, elements and their order during the HTML tree generation.
+BEM tree should be transformed into a view-oriented format at the back-end level (before passing it to the templating engine).
+A good example of a view-oriented data format can be found in the section [Transformation of the input data into a view-oriented format](#bringing_input).
 
-At the same time, the details of an HTML-page organization, which is the front-end developer's responsibility, should be determined only at the level of the templating engine.
-You can find an example of implementation of such solution in the chapter [Adding BEM-entities for solving layout problems](#additionbem).
+At the same time, all details of how HTML is organized within a page
+are still the front-end developer's responsibility, and should be determined only at the templating engine level.
+You can find an example of implementation of such a solution in the chapter [Adding BEM-entities for solving layout problems](#additionbem).
 
 **See also**:
 
@@ -191,11 +200,12 @@ You can find an example of implementation of such solution in the chapter [Addin
 
 #### The Template
 
-The unit of BEMHTML program is a **template**. BEMHTML template associates an input BEM-entity (which is specified by the entity name, the element name and the value of modifier) with the corresponding HTML-element.
+A unit of a BEMHTML program is a **template**.
+BEMHTML template associates an input BEM-entity (which is specified by the entity name, the element name and the modifier value) with the corresponding HTML element.
 
 The template consists of the following parts:
 
-  * the **predicate**, it is a set of conditions under which the template will be applied. A typical predicate describes the properties of the input BEM-entity;
+  * the **predicate**, which is a set of conditions under which the template will be applied. A typical predicate describes the properties of the input BEM-entity;
   * the **body**, it contains the instructions for output HTML generation.
 
 **See also**:
