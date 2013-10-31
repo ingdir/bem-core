@@ -30,10 +30,10 @@ Development environment setup or template compilation procedures **are not cover
 
 #### Binding to the BEM Subject Domain
 
-The templating engine BEMHTML is one of the technological solutions, that are ensuring creation of web-interfaces according to the [BEM-methodology](http://bem.info/method/).
+The templating engine BEMHTML is one of the technological solutions for creation of web interfaces according to the [BEM methodology](http://bem.info/method/).
 
-The BEMHTML input data is a BEM-tree in [BEMJSON](#bemjson) format, it describes the web-page.
-The pattern language of BEMHTML provides a special structures for processing blocks, elements and modifiers.
+The BEMHTML input data is a BEM tree in [BEMJSON](#bemjson) format that describes a web-page.
+The pattern language of BEMHTML provides special structures for processing blocks, elements and modifiers.
 
 <a id="decl_templatе"></a>
 
@@ -43,7 +43,7 @@ The pattern language of BEMHTML provides a special structures for processing blo
 
 ##### Imperative Approach
 
-Standard templating engines are using **imperative approach** for the templates: HTML is formed by consistent reading and applying of the templates.
+Standard templating engines use **imperative approach** for templates: HTML is formed by consistent reading and applying of the templates.
 
 <table>
 <tr>
@@ -86,14 +86,14 @@ Standard templating engines are using **imperative approach** for the templates:
 </tr>
 </table>
 
-In such templates the redundancy caused by the syntactic requirements of the HTML(the opening
-tag - generated content - the closing tag) is inevitable. The redundancy is even higher for tables, lists, etc.
+In such templates, the redundancy caused by syntactic requirements of HTML (an opening
+tag - generated content - a closing tag) is inevitable. The redundancy is even higher for tables, lists, etc.
 
 <a id="declarativ"></a>
 
 ##### Declarative Approach
 
-Declarative approach allows us to write templates in form of sets of descriptive statement with the following structure: *the input data type (BEM-entity) — HTML representation (tag, attribute, etc.)*.
+Declarative approach allows us to write templates as sets of descriptive statements with the following structure: *the input data type (BEM-entity) — HTML representation (tag, attribute, etc.)*.
 
 <table>
     <tr>
@@ -132,24 +132,24 @@ block menu {
     </tr>
 </table>
 
-The generation procedure of an HTML-item is standardized in BEMHTML and performed by the templating engine. Such approach allows us to use the declarative templates. The same approach is used for the data transformation in XSLT and AWK.
+The generation procedure of an HTML-item in BEMHTML is standardized and performed by the templating engine. Such approach allows us to use declarative templates. The same approach is used for the data transformation in XSLT and AWK.
 
 <a id="descriptionlanguage"></a>
 
 #### The Description Language — JavaScript
 
-BEMHTML is a specialized language (DSL) which is **dilating** JavaScript.
+BEMHTML is a specialized language (DSL) which **extends** JavaScript syntax.
 
-More precisely, BEMHTML is a superset of [XJST](https://github.com/veged/xjst/) pattern language, which is a superset of JavaScript.
+More precisely, BEMHTML is a superset of [XJST](https://github.com/veged/xjst/) pattern language, which in turn is a superset of JavaScript.
 
-BEMHTML syntax provides a short notation for the correspondence between BEM-entities and generation of HTML elements an attributes.
-Besides that, **any** JavaScript constructions can be used in templates.
+BEMHTML syntax provides short notation to connect BEM-entities and generation of HTML elements and attributes.
+Besides that, **any** JavaScript constructions can be used within templates.
 
 <a id="execution_language"></a>
 
-#### Templates' Execution Language — JavaScript
+#### Template Execution Language — JavaScript
 
-BEMHTML is compiled before the execution into an optimized JavaScript, which receives BEMJSON data and returns HTML.
+BEMHTML is compiled into optimized JavaScript before execution, which receives BEMJSON data and returns HTML.
 
 Such template can be executed at the server side as well at the client side.
 
